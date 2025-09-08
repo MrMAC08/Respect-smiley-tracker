@@ -534,6 +534,7 @@
     <div class="container">
         <div class="header">
             <button class="manage-btn" onclick="openManageModal()">⚙️ Manage Students</button>
+            <button class="manage-btn" onclick="openSummaryModal()" style="right: 180px;">📊 Class Summary</button>
             <h1>🌟 Whakaute/Respect Tracker 🌟</h1>
             <p>Track student respect levels and manage daily & weekly draws</p>
         </div>
@@ -641,6 +642,59 @@
         </div>
     </div>
 
+    <!-- Class Summary Modal -->
+    <div id="summaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSummaryModal()">&times;</span>
+            <h2>📊 Class Respect Summary</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                <!-- Needs Improvement Section -->
+                <div style="background: #ffebee; border-radius: 15px; padding: 20px; border-left: 5px solid #f44336;">
+                    <h3 style="color: #c62828; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        ⚠️ Needs Improvement
+                        <span id="needsImprovementCount" style="background: #c62828; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">0</span>
+                    </h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with No Respect or Low Respect levels</p>
+                    <div id="needsImprovementList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <!-- Students will be added here -->
+                    </div>
+                </div>
+
+                <!-- Doing Well Section -->
+                <div style="background: #e8f5e8; border-radius: 15px; padding: 20px; border-left: 5px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        ✅ Doing Well
+                        <span id="doingWellCount" style="background: #2e7d32; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">0</span>
+                    </h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with Basic Respect or High Respect levels</p>
+                    <div id="doingWellList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <!-- Students will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overall Stats -->
+            <div style="margin-top: 30px; text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                <h3 style="color: #333; margin-bottom: 15px;">📈 Class Overview</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #4facfe;" id="summaryTotalStudents">0</div>
+                        <div style="color: #666; font-size: 0.9rem;">Total Students</div>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #2e7d32;" id="summaryEligibleStudents">0</div>
+                        <div style="color: #666; font-size: 0.9rem;">Eligible for Draw</div>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff9800;" id="summaryAwayStudents">0</div>
+                        <div style="color: #666; font-size: 0.9rem;">Away Today</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Import Modal -->
     <div id="importModal" class="modal">
         <div class="modal-content">
@@ -692,16 +746,29 @@
             document.getElementById('bulkNames').value = '';
         }
 
+        function openSummaryModal() {
+            document.getElementById('summaryModal').style.display = 'block';
+            updateSummaryModal();
+        }
+
+        function closeSummaryModal() {
+            document.getElementById('summaryModal').style.display = 'none';
+        }
+
         // Close modal when clicking outside
         window.onclick = function(event) {
             const importModal = document.getElementById('importModal');
             const manageModal = document.getElementById('manageModal');
+            const summaryModal = document.getElementById('summaryModal');
             
             if (event.target == importModal) {
                 closeImportModal();
             }
             if (event.target == manageModal) {
                 closeManageModal();
+            }
+            if (event.target == summaryModal) {
+                closeSummaryModal();
             }
         }
 
@@ -1170,6 +1237,71 @@
             document.getElementById('weeklyDrawsThisWeek').textContent = weeklyDrawCount;
         }
 
+        // Update summary modal with current student data
+        function updateSummaryModal() {
+            const needsImprovement = students.filter(s => 
+                s.respectLevel === 'no-respect' || s.respectLevel === 'low-respect'
+            );
+            
+            const doingWell = students.filter(s => 
+                s.respectLevel === 'basic-respect' || s.respectLevel === 'high-respect'
+            );
+            
+            const awayStudents = students.filter(s => s.isAway);
+            const eligibleStudents = getEligibleStudents();
+            
+            // Update counts
+            document.getElementById('needsImprovementCount').textContent = needsImprovement.length;
+            document.getElementById('doingWellCount').textContent = doingWell.length;
+            document.getElementById('summaryTotalStudents').textContent = students.length;
+            document.getElementById('summaryEligibleStudents').textContent = eligibleStudents.length;
+            document.getElementById('summaryAwayStudents').textContent = awayStudents.length;
+            
+            // Update needs improvement list
+            const needsImprovementList = document.getElementById('needsImprovementList');
+            needsImprovementList.innerHTML = '';
+            
+            if (needsImprovement.length === 0) {
+                needsImprovementList.innerHTML = '<p style="color: #666; font-style: italic; text-align: center;">🎉 All students are doing well!</p>';
+            } else {
+                needsImprovement.forEach(student => {
+                    const studentDiv = document.createElement('div');
+                    studentDiv.style.cssText = 'background: white; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);';
+                    
+                    const levelColor = student.respectLevel === 'no-respect' ? '#c62828' : '#ef6c00';
+                    const levelText = respectLevels[student.respectLevel];
+                    
+                    studentDiv.innerHTML = `
+                        <span style="font-weight: 600;">${student.name} ${student.isAway ? '(Away)' : ''}</span>
+                        <span style="background: ${levelColor}; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem;">${levelText}</span>
+                    `;
+                    needsImprovementList.appendChild(studentDiv);
+                });
+            }
+            
+            // Update doing well list
+            const doingWellList = document.getElementById('doingWellList');
+            doingWellList.innerHTML = '';
+            
+            if (doingWell.length === 0) {
+                doingWellList.innerHTML = '<p style="color: #666; font-style: italic; text-align: center;">No students in this category yet</p>';
+            } else {
+                doingWell.forEach(student => {
+                    const studentDiv = document.createElement('div');
+                    studentDiv.style.cssText = 'background: white; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);';
+                    
+                    const levelColor = student.respectLevel === 'basic-respect' ? '#1565c0' : '#2e7d32';
+                    const levelText = respectLevels[student.respectLevel];
+                    
+                    studentDiv.innerHTML = `
+                        <span style="font-weight: 600;">${student.name} ${student.isAway ? '(Away)' : ''}</span>
+                        <span style="background: ${levelColor}; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem;">${levelText}</span>
+                    `;
+                    doingWellList.appendChild(studentDiv);
+                });
+            }
+        }
+
         // Save data to localStorage
         function saveData() {
             localStorage.setItem('respectTracker_students', JSON.stringify(students));
@@ -1189,5 +1321,5 @@
         // Initialize the app when page loads
         init();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97b8dc0f717dd9a4',t:'MTc1NzI3NTkzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97b9ca7b3092d9a4',t:'MTc1NzI4NTY5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
