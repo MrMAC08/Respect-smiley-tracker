@@ -43,12 +43,17 @@
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .manage-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             padding: 8px 16px;
             border: 2px solid white;
             background: transparent;
@@ -177,11 +182,11 @@
             text-decoration: line-through;
         }
 
-        .respect-slider-container {
+        .whakaute-slider-container {
             margin-bottom: 8px;
         }
 
-        .respect-slider {
+        .whakaute-slider {
             width: 100%;
             height: 6px;
             border-radius: 3px;
@@ -191,7 +196,7 @@
             margin: 5px 0;
         }
 
-        .respect-slider::-webkit-slider-thumb {
+        .whakaute-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
             width: 18px;
@@ -203,7 +208,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        .respect-slider::-moz-range-thumb {
+        .whakaute-slider::-moz-range-thumb {
             width: 18px;
             height: 18px;
             border-radius: 50%;
@@ -213,7 +218,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        .respect-level-display {
+        .whakaute-level-display {
             text-align: center;
             font-weight: 600;
             padding: 8px;
@@ -222,29 +227,114 @@
             font-size: 0.9rem;
         }
 
-        .respect-level-display.no-respect {
+        .whakaute-level-display.no-respect {
             background: #ffebee;
             color: #c62828;
         }
 
-        .respect-level-display.low-respect {
+        .whakaute-level-display.low-respect {
             background: #fff3e0;
             color: #ef6c00;
         }
 
-        .respect-level-display.some-respect {
+        .whakaute-level-display.inconsistent-respect {
             background: #fff8e1;
             color: #f57f17;
         }
 
-        .respect-level-display.respectful {
+        .whakaute-level-display.respectful {
             background: #e3f2fd;
             color: #1565c0;
         }
 
-        .respect-level-display.high-respect {
+        .whakaute-level-display.high-respect {
             background: #e8f5e8;
             color: #2e7d32;
+        }
+
+        /* Class Slider Styles */
+        .class-slider-container {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .class-whakaute-slider {
+            width: 100%;
+            height: 15px;
+            border-radius: 8px;
+            background: linear-gradient(to right, #ff6b6b 0%, #ffa726 25%, #f57f17 50%, #42a5f5 75%, #66bb6a 100%);
+            outline: none;
+            -webkit-appearance: none;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .class-whakaute-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #333;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .class-whakaute-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .class-whakaute-slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #333;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .class-level-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .class-level-display.no-respect {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #c62828;
+        }
+
+        .class-level-display.low-respect {
+            background: #fff3e0;
+            color: #ef6c00;
+            border: 2px solid #ef6c00;
+        }
+
+        .class-level-display.inconsistent-respect {
+            background: #fff8e1;
+            color: #f57f17;
+            border: 2px solid #f57f17;
+        }
+
+        .class-level-display.respectful {
+            background: #e3f2fd;
+            color: #1565c0;
+            border: 2px solid #1565c0;
+        }
+
+        .class-level-display.high-respect {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #2e7d32;
         }
 
         .wheel-container {
@@ -426,6 +516,139 @@
             padding: 6px 8px;
         }
 
+        /* Daily Challenge Styles */
+        .daily-challenge-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .challenge-input-section {
+            margin-bottom: 20px;
+        }
+
+        .add-challenge {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .add-challenge input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .add-challenge input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        .challenges-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .challenge-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+
+        .challenge-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .challenge-text {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .challenge-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .challenge-remove-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .challenge-remove-btn:hover {
+            background: #ff5252;
+        }
+
+        .challenge-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .challenge-summary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .challenge-summary h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .challenge-summary p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.4;
+            font-size: 1.1rem;
+        }
+
+        .challenge-count {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .challenge-popup-hint {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -507,8 +730,6 @@
             padding-bottom: 10px;
         }
 
-
-
         @media (max-width: 768px) {
             .add-student {
                 flex-direction: column;
@@ -527,10 +748,18 @@
                 font-size: 2rem;
             }
 
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .manage-btn {
-                position: static;
-                margin: 0 auto 15px auto;
-                display: block;
+                width: 200px;
+            }
+
+            .class-level-display {
+                font-size: 1.5rem;
+                padding: 15px;
             }
         }
     </style>
@@ -538,20 +767,71 @@
 <body>
     <div class="container">
         <div class="header">
-            <button class="manage-btn" onclick="openManageModal()">⚙️ Manage Students</button>
-            <button class="manage-btn" onclick="openSummaryModal()" style="right: 180px;">📊 Class Summary</button>
-            <h1>🌟 Whakaute/Respect Tracker 🌟</h1>
-            <p>Track student respect levels and manage daily & weekly draws</p>
+            <h1>🌟 Whakaute Tracker 🌟</h1>
+            <p>Track student levels and manage daily & weekly draws</p>
+            <div class="header-buttons">
+                <button class="manage-btn" onclick="openManageModal()">⚙️ Manage Students</button>
+                <button class="manage-btn" onclick="openSummaryModal()">📊 Class Summary</button>
+            </div>
         </div>
 
         <div class="main-content">
-
-
             <!-- Students Management Section -->
             <div class="section">
-                <h2>📊 Student Respect Levels</h2>
+                <h2>📊 Student Whakaute Levels</h2>
                 <div id="studentsContainer" class="students-grid">
                     <!-- Students will be added here dynamically -->
+                </div>
+            </div>
+
+            <!-- Daily Challenge Section -->
+            <div class="section">
+                <h2>🎯 Today's Daily Challenge</h2>
+                <div class="daily-challenge-container">
+                    <div class="challenge-input-section">
+                        <div class="add-challenge">
+                            <input type="text" id="challengeInput" placeholder="Add a focus area for today..." maxlength="100">
+                            <button class="btn btn-primary" onclick="addChallenge()">Add Challenge</button>
+                        </div>
+                    </div>
+                    
+                    <div class="challenges-list" id="challengesList">
+                        <!-- Challenges will be added here -->
+                    </div>
+                    
+                    <div class="challenge-summary" id="challengeSummary">
+                        <p style="color: #666; font-style: italic; text-align: center;">No challenges set for today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Whakaute Section -->
+            <div class="section">
+                <h2>🎚️ Class Whakaute Level</h2>
+                <div class="class-slider-container">
+                    <p style="color: #666; margin-bottom: 15px; font-size: 1rem;">
+                        Set the overall Whakaute level for the whole class
+                    </p>
+                    
+                    <div class="class-level-display high-respect" id="classLevelDisplay">
+                        High Whakaute
+                    </div>
+                    
+                    <input type="range" min="0" max="4" value="4" 
+                           class="class-whakaute-slider" 
+                           id="classSlider"
+                           oninput="updateClassLevel(this.value)"
+                           onchange="saveClassLevel(this.value)">
+                    
+                    <!-- Class Level Description -->
+                    <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #4facfe;">
+                        <div id="classLevelDescription">
+                            <h4 style="color: #333; margin-bottom: 8px;">High Class Whakaute</h4>
+                            <p style="color: #666; line-height: 1.4; margin: 0;">Outstanding class behavior! Students are consistently respectful, highly engaged, supporting each other, and taking responsibility for their learning. An exemplary learning environment.</p>
+                        </div>
+                    </div>
+                    
+
                 </div>
             </div>
 
@@ -600,8 +880,6 @@
                     <div id="weeklyWinners"></div>
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -640,6 +918,14 @@
                 </div>
             </div>
 
+            <!-- Challenge Management -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #333; margin-bottom: 15px;">🎯 Daily Challenges</h3>
+                <div style="text-align: center;">
+                    <button class="btn btn-warning" onclick="clearAllChallenges()">🗑️ Clear All Challenges</button>
+                </div>
+            </div>
+
             <!-- Reset Options -->
             <div style="text-align: center;">
                 <button class="btn btn-danger" onclick="resetWeek()">🔄 Reset Week</button>
@@ -651,7 +937,7 @@
     <div id="summaryModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeSummaryModal()">&times;</span>
-            <h2>📊 Class Respect Summary</h2>
+            <h2>📊 Class Whakaute Summary</h2>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
                 <!-- Needs Improvement Section -->
@@ -660,7 +946,7 @@
                         ⚠️ Needs Improvement
                         <span id="needsImprovementCount" style="background: #c62828; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">0</span>
                     </h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with No Respect or Low Respect levels</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with No Whakaute, Low Whakaute, or Inconsistent Whakaute levels</p>
                     <div id="needsImprovementList" style="display: flex; flex-direction: column; gap: 8px;">
                         <!-- Students will be added here -->
                     </div>
@@ -672,7 +958,7 @@
                         ✅ Doing Well
                         <span id="doingWellCount" style="background: #2e7d32; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">0</span>
                     </h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with Some Respect, Respectful, or High Respect levels</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Students with Whakaute or High Whakaute levels</p>
                     <div id="doingWellList" style="display: flex; flex-direction: column; gap: 8px;">
                         <!-- Students will be added here -->
                     </div>
@@ -722,48 +1008,54 @@
         let weeklyWinners = JSON.parse(localStorage.getItem('respectTracker_weeklyWinners')) || [];
         let dailyDrawCount = parseInt(localStorage.getItem('respectTracker_dailyDrawCount')) || 0;
         let weeklyDrawCount = parseInt(localStorage.getItem('respectTracker_weeklyDrawCount')) || 0;
+        let dailyChallenges = JSON.parse(localStorage.getItem('respectTracker_dailyChallenges')) || [];
         let currentView = 'student'; // Default to student view
 
-        // Respect levels
+        // Whakaute levels
         const respectLevels = {
-            'no-respect': 'No Respect',
-            'low-respect': 'Low Respect',
-            'some-respect': 'Some Respect',
-            'respectful': 'Respectful',
-            'high-respect': 'High Respect'
+            'no-respect': 'No Whakaute',
+            'low-respect': 'Low Whakaute',
+            'inconsistent-respect': 'Inconsistent Whakaute',
+            'respectful': 'Whakaute',
+            'high-respect': 'High Whakaute'
         };
 
-        // Detailed respect level definitions
+        // Detailed whakaute level definitions
         const respectDefinitions = {
             'no-respect': {
-                title: 'No Respect',
+                title: 'No Whakaute',
                 teacher: 'Ignores instructions, argues, or talks back.',
                 classmates: 'Interrupts, teases, or puts others down.',
-                equipment: 'Damages or misuses items on purpose.'
+                equipment: 'Damages or misuses items on purpose.',
+                self: 'Gives up easily, speaks badly about themselves, or doesn\'t try.'
             },
             'low-respect': {
-                title: 'Low Respect',
+                title: 'Low Whakaute',
                 teacher: 'Sometimes listens but often distracts or talks over.',
                 classmates: 'Can be polite at times but still excludes or annoys others.',
-                equipment: 'Uses items carelessly, not thinking about sharing or looking after them.'
+                equipment: 'Uses items carelessly, not thinking about sharing or looking after them.',
+                self: 'Puts in little effort, makes negative comments about themselves, or doesn\'t care for their own work.'
             },
-            'some-respect': {
-                title: 'Some Respect',
-                teacher: 'Usually listens and follows instructions, but not always straight away.',
-                classmates: 'Mostly kind and polite, though not always consistent.',
-                equipment: 'Uses items properly most of the time, but forgets to return or care for them sometimes.'
+            'inconsistent-respect': {
+                title: 'Inconsistent Whakaute',
+                teacher: 'Sometimes follows instructions, other times ignores or delays.',
+                classmates: 'Can be kind to some people but interrupts, excludes, or teases others.',
+                equipment: 'Usually uses things properly but can also be careless or forgetful.',
+                self: 'Sometimes tries their best and feels proud, but other times gives up or talks themselves down.'
             },
             'respectful': {
-                title: 'Respectful',
-                teacher: 'Listens carefully, follows instructions promptly, and shows polite manners.',
-                classmates: 'Considerate, helpful, and treats others how they want to be treated.',
-                equipment: 'Uses resources responsibly and shares fairly.'
+                title: 'Whakaute',
+                teacher: 'Listens carefully, follows instructions promptly, and uses polite manners.',
+                classmates: 'Considerate, helpful, and treats others fairly.',
+                equipment: 'Uses and shares resources responsibly, takes care of items.',
+                self: 'Works hard, takes pride in effort, and speaks positively about their learning.'
             },
             'high-respect': {
-                title: 'High Respect',
+                title: 'High Whakaute',
                 teacher: 'Consistently polite, attentive, and shows appreciation for learning.',
                 classmates: 'Encourages, supports, and includes everyone.',
-                equipment: 'Always takes care of items, returns them properly, and reminds others to do the same.'
+                equipment: 'Always takes care of items, returns them properly, and helps others use them responsibly.',
+                self: 'Shows confidence, values their own learning, and takes pride in effort and improvement.'
             }
         };
 
@@ -812,6 +1104,59 @@
             }
         }
 
+        // Class-wide Whakaute tracking (independent from individual students)
+        let classWhakaute = JSON.parse(localStorage.getItem('respectTracker_classWhakaute')) || 'high-respect';
+
+        // Class level descriptions
+        const classRespectDefinitions = {
+            'no-respect': {
+                title: 'No Class Whakaute',
+                description: 'The class is disruptive, not following instructions, and showing little respect for learning or each other. Multiple students are off-task and the learning environment is compromised.'
+            },
+            'low-respect': {
+                title: 'Low Class Whakaute',
+                description: 'Some students are trying, but there are frequent disruptions and distractions. The class needs regular reminders about expectations and respectful behavior.'
+            },
+            'inconsistent-respect': {
+                title: 'Inconsistent Class Whakaute',
+                description: 'The class shows respect at times but can be easily distracted or lose focus. Some good moments mixed with periods where expectations need reinforcing.'
+            },
+            'respectful': {
+                title: 'Class Whakaute',
+                description: 'The class is generally respectful, following instructions well, and creating a positive learning environment. Most students are engaged and supporting each other.'
+            },
+            'high-respect': {
+                title: 'High Class Whakaute',
+                description: 'Outstanding class behavior! Students are consistently respectful, highly engaged, supporting each other, and taking responsibility for their learning. An exemplary learning environment.'
+            }
+        };
+
+        // Class slider functions
+        function updateClassLevel(value) {
+            const levels = ['no-respect', 'low-respect', 'inconsistent-respect', 'respectful', 'high-respect'];
+            const level = levels[parseInt(value)];
+            const displayElement = document.getElementById('classLevelDisplay');
+            const descriptionElement = document.getElementById('classLevelDescription');
+            
+            displayElement.className = `class-level-display ${level}`;
+            displayElement.textContent = respectLevels[level];
+            
+            // Update description
+            const definition = classRespectDefinitions[level];
+            descriptionElement.innerHTML = `
+                <h4 style="color: #333; margin-bottom: 8px;">${definition.title}</h4>
+                <p style="color: #666; line-height: 1.4; margin: 0;">${definition.description}</p>
+            `;
+        }
+
+        function saveClassLevel(value) {
+            const levels = ['no-respect', 'low-respect', 'inconsistent-respect', 'respectful', 'high-respect'];
+            const selectedLevel = levels[parseInt(value)];
+            
+            classWhakaute = selectedLevel;
+            localStorage.setItem('respectTracker_classWhakaute', JSON.stringify(classWhakaute));
+        }
+
         // Initialize the app
         function init() {
             renderStudents();
@@ -819,9 +1164,16 @@
             updateEligibleCounts();
             renderDailyWinners();
             renderWeeklyWinners();
+            renderChallenges();
             
             // Initialize flippers
             updateEligibleDisplays();
+            
+            // Initialize class slider
+            const levels = ['no-respect', 'low-respect', 'inconsistent-respect', 'respectful', 'high-respect'];
+            const currentValue = levels.indexOf(classWhakaute);
+            document.getElementById('classSlider').value = currentValue;
+            updateClassLevel(currentValue);
         }
 
         // Add a new student
@@ -906,34 +1258,34 @@
             const values = {
                 'no-respect': 0,
                 'low-respect': 1,
-                'some-respect': 2,
+                'inconsistent-respect': 2,
                 'respectful': 3,
                 'high-respect': 4
             };
             return values[level] || 0;
         }
 
-        // Preview respect level while dragging slider (live update)
+        // Preview whakaute level while dragging slider (live update)
         function previewRespectLevel(studentId, value) {
-            const levels = ['no-respect', 'low-respect', 'some-respect', 'respectful', 'high-respect'];
+            const levels = ['no-respect', 'low-respect', 'inconsistent-respect', 'respectful', 'high-respect'];
             const level = levels[parseInt(value)];
             const displayElement = document.getElementById(`respect-display-${studentId}`);
             
             if (displayElement) {
                 // Update the display immediately for preview
-                displayElement.className = `respect-level-display ${level}`;
+                displayElement.className = `whakaute-level-display ${level}`;
                 displayElement.textContent = respectLevels[level];
             }
         }
 
-        // Set respect level from slider value (final save)
+        // Set whakaute level from slider value (final save)
         function setRespectLevelFromSlider(studentId, value) {
-            const levels = ['no-respect', 'low-respect', 'some-respect', 'respectful', 'high-respect'];
+            const levels = ['no-respect', 'low-respect', 'inconsistent-respect', 'respectful', 'high-respect'];
             const level = levels[parseInt(value)];
             setRespectLevel(studentId, level);
         }
 
-        // Show respect level definitions popup
+        // Show whakaute level definitions popup
         function showRespectDefinitions(level) {
             const definition = respectDefinitions[level];
             if (!definition) return;
@@ -972,6 +1324,10 @@
                         <h4 style="color: #ff9800; margin: 0 0 8px 0; font-size: 1rem;">📚 Equipment/Resources</h4>
                         <p style="margin: 0; color: #333; line-height: 1.4;">${definition.equipment}</p>
                     </div>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #9c27b0;">
+                        <h4 style="color: #9c27b0; margin: 0 0 8px 0; font-size: 1rem;">💜 Self</h4>
+                        <p style="margin: 0; color: #333; line-height: 1.4;">${definition.self}</p>
+                    </div>
                 </div>
             `;
             
@@ -1008,13 +1364,13 @@
                 // Always show full management interface
                 studentCard.innerHTML = `
                     <div class="student-name">${student.name} ${student.isAway ? '(Away)' : ''}</div>
-                    <div class="respect-slider-container">
+                    <div class="whakaute-slider-container">
                         <input type="range" min="0" max="4" value="${getRespectValue(student.respectLevel)}" 
-                               class="respect-slider" 
+                               class="whakaute-slider" 
                                oninput="previewRespectLevel(${student.id}, this.value)"
                                onchange="setRespectLevelFromSlider(${student.id}, this.value)"
                                ${student.isAway ? 'disabled' : ''}>
-                        <div class="respect-level-display ${student.respectLevel}" id="respect-display-${student.id}" 
+                        <div class="whakaute-level-display ${student.respectLevel}" id="respect-display-${student.id}" 
                              onclick="showRespectDefinitions('${student.respectLevel}')" 
                              style="cursor: pointer;" 
                              title="Click to see detailed definitions">
@@ -1067,10 +1423,10 @@
             }
         }
 
-        // Get eligible students for daily draw (some-respect, respectful and high-respect, not away)
+        // Get eligible students for daily draw (respectful and high-respect only, not away)
         function getEligibleStudents() {
             return students.filter(s => 
-                (s.respectLevel === 'some-respect' || s.respectLevel === 'respectful' || s.respectLevel === 'high-respect') && 
+                (s.respectLevel === 'respectful' || s.respectLevel === 'high-respect') && 
                 !s.isAway
             );
         }
@@ -1165,7 +1521,7 @@
             const eligible = getEligibleStudents();
             
             if (eligible.length === 0) {
-                alert('No students are eligible for the daily draw. Students need Some Respect, Respectful, or High Respect level.');
+                alert('No students are eligible for the daily draw. Students need Whakaute or High Whakaute level.');
                 return;
             }
 
@@ -1350,11 +1706,11 @@
         // Update summary modal with current student data
         function updateSummaryModal() {
             const needsImprovement = students.filter(s => 
-                s.respectLevel === 'no-respect' || s.respectLevel === 'low-respect'
+                s.respectLevel === 'no-respect' || s.respectLevel === 'low-respect' || s.respectLevel === 'inconsistent-respect'
             );
             
             const doingWell = students.filter(s => 
-                s.respectLevel === 'some-respect' || s.respectLevel === 'respectful' || s.respectLevel === 'high-respect'
+                s.respectLevel === 'respectful' || s.respectLevel === 'high-respect'
             );
             
             const awayStudents = students.filter(s => s.isAway);
@@ -1378,7 +1734,8 @@
                     const studentDiv = document.createElement('div');
                     studentDiv.style.cssText = 'background: white; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);';
                     
-                    const levelColor = student.respectLevel === 'no-respect' ? '#c62828' : '#ef6c00';
+                    const levelColor = student.respectLevel === 'no-respect' ? '#c62828' : 
+                                     student.respectLevel === 'low-respect' ? '#ef6c00' : '#f57f17';
                     const levelText = respectLevels[student.respectLevel];
                     
                     studentDiv.innerHTML = `
@@ -1400,8 +1757,7 @@
                     const studentDiv = document.createElement('div');
                     studentDiv.style.cssText = 'background: white; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);';
                     
-                    const levelColor = student.respectLevel === 'some-respect' ? '#f57f17' : 
-                                     student.respectLevel === 'respectful' ? '#1565c0' : '#2e7d32';
+                    const levelColor = student.respectLevel === 'respectful' ? '#1565c0' : '#2e7d32';
                     const levelText = respectLevels[student.respectLevel];
                     
                     studentDiv.innerHTML = `
@@ -1413,6 +1769,169 @@
             }
         }
 
+        // Daily Challenge Functions
+        function addChallenge() {
+            const input = document.getElementById('challengeInput');
+            const challengeText = input.value.trim();
+            
+            if (challengeText === '') {
+                alert('Please enter a challenge');
+                return;
+            }
+            
+            if (dailyChallenges.find(c => c.text.toLowerCase() === challengeText.toLowerCase())) {
+                alert('This challenge already exists');
+                return;
+            }
+            
+            const challenge = {
+                id: Date.now(),
+                text: challengeText,
+                dateAdded: new Date().toLocaleDateString()
+            };
+            
+            dailyChallenges.push(challenge);
+            input.value = '';
+            saveData();
+            renderChallenges();
+        }
+
+        function removeChallenge(challengeId) {
+            if (confirm('Remove this challenge?')) {
+                dailyChallenges = dailyChallenges.filter(c => c.id !== challengeId);
+                saveData();
+                renderChallenges();
+            }
+        }
+
+        function renderChallenges() {
+            const challengesList = document.getElementById('challengesList');
+            const challengeSummary = document.getElementById('challengeSummary');
+            
+            challengesList.innerHTML = '';
+            
+            if (dailyChallenges.length === 0) {
+                challengeSummary.innerHTML = '<p style="color: #666; font-style: italic; text-align: center;">No challenges set for today</p>';
+                return;
+            }
+            
+            // Render individual challenges
+            dailyChallenges.forEach(challenge => {
+                const challengeDiv = document.createElement('div');
+                challengeDiv.className = 'challenge-item';
+                challengeDiv.innerHTML = `
+                    <div class="challenge-text">${challenge.text}</div>
+                    <div class="challenge-actions">
+                        <button class="challenge-remove-btn" onclick="removeChallenge(${challenge.id})">Remove</button>
+                    </div>
+                `;
+                challengesList.appendChild(challengeDiv);
+            });
+            
+            // Update summary
+            challengeSummary.innerHTML = `
+                <h4>🎯 Today's Focus Areas</h4>
+                <p>The class is working on ${dailyChallenges.length} specific challenge${dailyChallenges.length === 1 ? '' : 's'} today</p>
+                <div class="challenge-count">${dailyChallenges.length} Challenge${dailyChallenges.length === 1 ? '' : 's'} Active</div>
+                <div class="challenge-popup-hint">💡 Click here to see all challenges</div>
+            `;
+            
+            // Make summary clickable to show popup
+            challengeSummary.onclick = showChallengesPopup;
+        }
+
+        function clearAllChallenges() {
+            if (confirm('Clear all daily challenges?')) {
+                dailyChallenges = [];
+                saveData();
+                renderChallenges();
+            }
+        }
+
+        // Show challenges in a popup
+        function showChallengesPopup() {
+            if (dailyChallenges.length === 0) {
+                alert('No challenges have been set for today yet. Add some challenges first!');
+                return;
+            }
+
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                border-radius: 20px;
+                padding: 30px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                z-index: 2000;
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+            `;
+            
+            let challengesHtml = '';
+            dailyChallenges.forEach((challenge, index) => {
+                challengesHtml += `
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold;">
+                                ${index + 1}
+                            </div>
+                            <div style="flex: 1; font-size: 1.1rem; font-weight: 500; line-height: 1.4;">
+                                ${challenge.text}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            popup.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <h3 style="color: #333; margin: 0; font-size: 1.8rem; display: flex; align-items: center; gap: 10px;">
+                        🎯 Today's Focus Areas
+                    </h3>
+                    <button onclick="this.parentElement.parentElement.remove(); document.getElementById('challengePopupOverlay').remove();" 
+                            style="background: #ff6b6b; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">×</button>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <p style="color: #666; font-size: 1rem; margin: 0; text-align: center; background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                        These are the specific areas the class is focusing on today. Keep these in mind when assessing student behavior and Whakaute levels.
+                    </p>
+                </div>
+                <div>
+                    ${challengesHtml}
+                </div>
+                <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 2px solid #f0f0f0;">
+                    <p style="color: #999; font-size: 0.9rem; margin: 0; font-style: italic;">
+                        💡 You can add or remove challenges from the main Daily Challenge section above
+                    </p>
+                </div>
+            `;
+            
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'challengePopupOverlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 1999;
+            `;
+            overlay.onclick = () => {
+                popup.remove();
+                overlay.remove();
+            };
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(popup);
+        }
+
         // Save data to localStorage
         function saveData() {
             localStorage.setItem('respectTracker_students', JSON.stringify(students));
@@ -1420,6 +1939,7 @@
             localStorage.setItem('respectTracker_weeklyWinners', JSON.stringify(weeklyWinners));
             localStorage.setItem('respectTracker_dailyDrawCount', dailyDrawCount.toString());
             localStorage.setItem('respectTracker_weeklyDrawCount', weeklyDrawCount.toString());
+            localStorage.setItem('respectTracker_dailyChallenges', JSON.stringify(dailyChallenges));
         }
 
         // Handle Enter key in student name input
@@ -1429,8 +1949,15 @@
             }
         });
 
+        // Handle Enter key in challenge input
+        document.getElementById('challengeInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addChallenge();
+            }
+        });
+
         // Initialize the app when page loads
         init();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97c95baf119150a7',t:'MTc1NzQ0ODkzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97d1fb65806bd99a',t:'MTc1NzUzOTM2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
